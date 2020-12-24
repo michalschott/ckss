@@ -1,0 +1,167 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    ckss: 01-01
+  name: "01-01-1"
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-egress-all
+  namespace: "01-01-1"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-ingress-all
+  namespace: "01-01-1"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-egress-dns
+  namespace: "01-01-1"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - ports:
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-egress-to-nginx
+  namespace: "01-01-1"
+spec:
+  podSelector:
+    matchLabels:
+      app: client
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          ckss: 01-01
+      podSelector:
+        matchLabels:
+          app: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: client
+  name: client
+  namespace: "01-01-1"
+spec:
+  containers:
+  - name: alpine
+    image: alpine:3.12.3@sha256:074d3636ebda6dd446d0d00304c4454f468237fdacf08fb0eeac90bdbfa1bac7
+    args:
+    - sleep
+    - "1000000"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    ckss: 01-01
+  name: "01-01-2"
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-egress-all
+  namespace: "01-01-2"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-ingress-all
+  namespace: "01-01-2"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-http
+  namespace: "01-01-2"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ckss: 01-01
+      podSelector:
+        matchLabels:
+          app: client
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+  namespace: "01-01-2"
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.19.6-alpine@sha256:01747306a7247dbe928db991eab42e4002118bf636dd85b4ffea05dd907e5b66
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+  namespace: "01-01-2"
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: client
+  name: client
+  namespace: "default"
+spec:
+  containers:
+  - name: alpine
+    image: alpine:3.12.3@sha256:074d3636ebda6dd446d0d00304c4454f468237fdacf08fb0eeac90bdbfa1bac7
+    args:
+    - sleep
+    - "1000000"

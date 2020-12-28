@@ -89,4 +89,4 @@ command terminated with exit code 1
 
 **Cleanup:**
 
-`kubectl delete -f manifest.yaml`
+`kubectl delete -f manifest.yaml --wait=false`

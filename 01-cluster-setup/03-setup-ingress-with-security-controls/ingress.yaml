@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: "01-03"
+spec:
+  rules:
+  - host: ckss.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: foo-service
+          servicePort: 5678
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: bar-service
+          servicePort: 5678
+  tls:
+  - hosts:
+    - ckss.local
+    secretName: ckss-local-tls

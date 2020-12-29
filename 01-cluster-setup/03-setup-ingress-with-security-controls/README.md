@@ -53,3 +53,7 @@ kubectl -n 01-03 create secret tls ckss-local-tls --key cert.key --cert cert
 
 Create ingress:
 `kubectl apply -f ingress.yaml`
+
+**Cleanup:**
+
+`kubectl delete -f manifest.yaml -f ingress.yaml --wait=false`

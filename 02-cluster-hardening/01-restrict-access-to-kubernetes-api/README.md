@@ -1,10 +1,10 @@
 # Restrict Access To Kubernetes API
 
 Documentation available during exam:
-* https://kubernetes.io/docs/concepts/security/controlling-access/
-* https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#normal-user
-* https://kubernetes.io/docs/concepts/cluster-administration/certificates/
-* https://kubernetes.io/docs/reference/access-authn-authz/
+* https://v1-19.docs.kubernetes.io/docs/concepts/security/controlling-access/
+* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#normal-user
+* https://v1-19.docs.kubernetes.io/docs/concepts/cluster-administration/certificates/
+* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/
 
 Additional reading:
 * https://cloud.google.com/anthos/gke/docs/on-prem/1.6/how-to/hardening-your-cluster

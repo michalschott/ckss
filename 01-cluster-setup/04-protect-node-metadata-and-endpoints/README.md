@@ -1,9 +1,9 @@
 # Protect Node Metadata And Endpoints
 
 Documentation available during exam:
-* https://v1-19.docs.kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/#restricting-cloud-metadata-api-access
-* https://v1-19.docs.kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/
-* https://v1-19.docs.kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
+* https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/#restricting-cloud-metadata-api-access
+* https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/
+* https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
 
 Additional documentation:
 * https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#concealment

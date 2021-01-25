@@ -1,9 +1,9 @@
 # Network Security Policies
 
 Documentation available during exam:
-* https://v1-19.docs.kubernetes.io/docs/concepts/services-networking/network-policies/
-* https://v1-19.docs.kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/
-* https://v1-19.docs.kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
+* https://kubernetes.io/docs/concepts/services-networking/network-policies/
+* https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/
+* https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 * https://kubernetes.io/blog/2017/10/enforcing-network-policies-in-kubernetes/
 
 ## TL;DR

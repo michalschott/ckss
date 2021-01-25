@@ -1,12 +1,12 @@
 # Exercise Caution In Using Service Accounts e.g. disable defaults, minimize permissions on newly created ones
 
 Documentation available during exam:
-* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/
-* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
-* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/authorization/#authorization-modules
-* https://v1-19.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+* https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/
+* https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
+* https://kubernetes.io/docs/reference/access-authn-authz/authorization/#authorization-modules
+* https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 * https://github.com/kubernetes/kubernetes/issues/57601
-* https://v1-19.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#use-the-default-service-account-to-access-the-api-server
+* https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#use-the-default-service-account-to-access-the-api-server
 
 
 Additional reading:

@@ -1,10 +1,10 @@
 # Setup Ingress With Security Control
 
 Documentation available during exam:
-* https://v1-19.docs.kubernetes.io/docs/concepts/services-networking/ingress/
-* https://v1-19.docs.kubernetes.io/docs/concepts/services-networking/ingress/#tls
-* https://v1-19.docs.kubernetes.io/docs/concepts/services-networking/ingress-controllers/
-* https://v1-19.docs.kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-secret-tls-em-
+* https://kubernetes.io/docs/concepts/services-networking/ingress/
+* https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+* https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+* https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-secret-tls-em-
 
 # TL;DR
 

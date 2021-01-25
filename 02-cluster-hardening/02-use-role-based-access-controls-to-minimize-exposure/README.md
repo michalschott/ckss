@@ -1,8 +1,8 @@
 # Use Role Based Access Controls to minimize exposure
 
 Documentation available during exam:
-* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/rbac/
-* https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/authorization/#authorization-modules
+* https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+* https://kubernetes.io/docs/reference/access-authn-authz/authorization/#authorization-modules
 
 Additional reading:
 * https://rbac.dev/

@@ -2,7 +2,7 @@
 
 set -e
 
-KIND_VERSION_REQUIRED="0.9.0"
+KIND_VERSION_REQUIRED="0.10.0"
 KIND_VERSION_CURRENT=$(kind --version)
 
 command -v docker >/dev/null 2>&1 || { \

@@ -27,7 +27,7 @@ case $1 in
     )
     kind create cluster --config ./kind-ckss.yaml
     kubectl label node ckss-worker ingress-ready=true
-    kubectl apply -f https://docs.projectcalico.org/v3.17/manifests/calico.yaml
+    kubectl apply -f https://docs.projectcalico.org/v3.21/manifests/calico.yaml
     etc_hosts_add
     ;;
   "delete")

@@ -2,8 +2,13 @@
 
 set -e
 
-KIND_VERSION_REQUIRED="0.10.0"
+KIND_VERSION_REQUIRED="0.11.1"
 KIND_VERSION_CURRENT=$(kind --version)
+
+if [ $(uname -m) != "x86_64" ]; then
+  echo "only amd64 is supported"
+  exit 1
+fi
 
 command -v docker >/dev/null 2>&1 || { \
   echo "Docker is not installed."; \

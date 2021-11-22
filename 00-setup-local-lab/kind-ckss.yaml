@@ -6,12 +6,12 @@ networking:
   podSubnet: 192.168.0.0/16
 nodes:
 - role: control-plane
-  image: kindest/node:v1.20.2@sha256:8f7ea6e7642c0da54f04a7ee10431549c0257315b3a634f6ef2fecaaedb19bab
+  image: kindest/node:v1.22.4@sha256:b7e065bada10305630f2415bb5e155cba02f20fe27e3aa4c938c622543f86977
   extraMounts:
   - hostPath: "./seccomp-profiles"
     containerPath: "/var/lib/kubelet/seccomp/profiles"
 - role: worker
-  image: kindest/node:v1.20.2@sha256:8f7ea6e7642c0da54f04a7ee10431549c0257315b3a634f6ef2fecaaedb19bab
+  image: kindest/node:v1.22.4@sha256:b7e065bada10305630f2415bb5e155cba02f20fe27e3aa4c938c622543f86977
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration

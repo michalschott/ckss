@@ -21,8 +21,7 @@ Use rbac to minimize scope.
 Givien you have:
 * namespace `01-05`
 * two jobs (from ingress controller)
-* namespace `kube-dashboard`
-* dashboard accessible at `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/` once you run `kubectl proxy`
+* dashboard accessible at `http://localhost:8001/api/v1/namespaces/01-05/services/https:kubernetes-dashboard:/proxy/` once you run `kubectl proxy`
 
 **Create:**
 * `dashboard-read-only-user` serviceAccount in `01-05` namespace
@@ -42,7 +41,7 @@ In other console run:
 kubectl -n 01-05 describe secret $(kubectl -n 01-05 get secret | grep dashboard-read-only-user-token | awk '{print $1}')
 ```
 
-Note down token and use to log in to `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`.
+Note down token and use to log in to `http://localhost:8001/api/v1/namespaces/01-05/services/https:kubernetes-dashboard:/proxy/`.
 
 You should be able to:
 * list nodes

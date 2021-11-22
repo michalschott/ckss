@@ -38,6 +38,28 @@ spec:
       - 169.254.169.254/32
 ```
 
+Other approach would be to use calicos GlobalNetworkPolicy instead:
+```
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-all-egress-except-ec2-metadata
+spec:
+  selector: all()
+  egress:
+  - action: Deny
+    protocol: TCP
+    destination:
+      nets:
+      - 169.254.169.254/32
+  - action: Allow
+    destination:
+      nets:
+      - 0.0.0.0/0
+```
+
+Eventually `iptables -A OUTPUT -m owner ! --uid-owner root -d 169.254.169.254 -j DROP`.
+
 A kubelet's HTTPS endpoint exposes APIs which give access to data of varying sensitivity, and allow you to perform operations with varying levels of power on the node and within containers.
 
 By default, requests to the kubelet's HTTPS endpoint that are not rejected by other configured authentication methods are treated as anonymous requests, and given a username of system:anonymous and a group of system:unauthenticated.

@@ -1,0 +1,14 @@
+controller:
+  service:
+    type: NodePort
+  hostPort:
+    enabled: true
+  nodeSelector:
+    ingress-ready: 'true'
+  extraEnvs:
+    - name: GODEBUG
+      value: "x509ignoreCN=0"
+  tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      operator: Equal

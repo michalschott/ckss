@@ -1,24 +1,32 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress
   namespace: "01-03"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: ckss.local
     http:
       paths:
-      - path: /
+      - pathType: ImplementationSpecific
+        path: /
         backend:
-          serviceName: foo-service
-          servicePort: 5678
+          service:
+            name: foo-service
+            port:
+              number: 5678
   - http:
       paths:
-      - path: /
+      - pathType: ImplementationSpecific
+        path: /
         backend:
-          serviceName: bar-service
-          servicePort: 5678
+          service:
+            name: bar-service
+            port:
+              number: 5678
   tls:
   - hosts:
     - ckss.local

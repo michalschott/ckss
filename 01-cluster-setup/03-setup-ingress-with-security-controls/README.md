@@ -33,7 +33,7 @@ Givien you have:
 ```
 curl http://localhost
 curl -k https://localhost
-curl -k https://ckss.localhost
+curl -k https://ckss.local
 ```
 
 **Expected output:**
@@ -50,6 +50,8 @@ Create certificate and secret with:
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert -subj "/CN=ckss.local/O=ckss.local"
 kubectl -n 01-03 create secret tls ckss-local-tls --key cert.key --cert cert
 ```
+
+Optionally `kubectl apply -f certificate.yaml`
 
 Create ingress:
 `kubectl apply -f ingress.yaml`

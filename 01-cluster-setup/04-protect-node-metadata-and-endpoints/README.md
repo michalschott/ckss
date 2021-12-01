@@ -43,7 +43,7 @@ Other approach would be to use calicos GlobalNetworkPolicy instead:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-all-egress-except-ec2-metadata
+  name: deny-cloud-metadata-access
 spec:
   selector: all()
   egress:

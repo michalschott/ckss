@@ -1,23 +1,18 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 name: ckss
+featureGates:
+  SeccompDefault: true
 networking:
   disableDefaultCNI: true
   podSubnet: 192.168.0.0/16
 nodes:
 - role: control-plane
-  image: kindest/node:v1.22.4@sha256:b7e065bada10305630f2415bb5e155cba02f20fe27e3aa4c938c622543f86977
   extraMounts:
   - hostPath: "./seccomp-profiles"
     containerPath: "/var/lib/kubelet/seccomp/profiles"
-- role: worker
   image: kindest/node:v1.22.4@sha256:b7e065bada10305630f2415bb5e155cba02f20fe27e3aa4c938c622543f86977
-  kubeadmConfigPatches:
-  - |
-    kind: InitConfiguration
-    nodeRegistration:
-      kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
+- role: worker
   extraPortMappings:
   - containerPort: 80
     hostPort: 80
@@ -25,3 +20,13 @@ nodes:
   - containerPort: 443
     hostPort: 443
     protocol: TCP
+  extraMounts:
+  - hostPath: "./seccomp-profiles"
+    containerPath: "/var/lib/kubelet/seccomp/profiles"
+  image: kindest/node:v1.22.4@sha256:b7e065bada10305630f2415bb5e155cba02f20fe27e3aa4c938c622543f86977
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"

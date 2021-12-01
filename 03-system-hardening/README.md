@@ -1,4 +1,4 @@
-# 02-system-hardening
+# 03-system-hardening
 
 * [01-minimize-host-os-foootprint](01-minimize-host-os-foootprint)
 * [02-minimize-iam-roles](02-minimize-iam-roles)

@@ -45,17 +45,17 @@ Kubernetes represents usernames as strings. These can be: plain names, such as "
 Caution: The prefix system: is reserved for Kubernetes system use, so you should ensure that you don't have users or groups with names that start with system: by accident. Other than this special prefix, the RBAC authorization system does not require any format for usernames.
 In Kubernetes, Authenticator modules provide group information. Groups, like users, are represented as strings, and that string has no format requirements, other than that the prefix system: is reserved.
 
-ServiceAccounts have names prefixed with system:serviceaccount:, and belong to groups that have names prefixed with system:serviceaccounts:.
+ServiceAccounts have names prefixed with `system:serviceaccount:`, and belong to groups that have names prefixed with `system:serviceaccounts:`.
 
 Note:
-system:serviceaccount: (singular) is the prefix for service account usernames.
-system:serviceaccounts: (plural) is the prefix for service account groups.
+`system:serviceaccount`: (singular) is the prefix for service account usernames.
+`system:serviceaccounts`: (plural) is the prefix for service account groups.
 
-API servers create a set of default ClusterRole and ClusterRoleBinding objects. Many of these are system: prefixed, which indicates that the resource is directly managed by the cluster control plane. All of the default ClusterRoles and ClusterRoleBindings are labeled with kubernetes.io/bootstrapping=rbac-defaults.
+API servers create a set of default ClusterRole and ClusterRoleBinding objects. Many of these are system: prefixed, which indicates that the resource is directly managed by the cluster control plane. All of the default ClusterRoles and ClusterRoleBindings are labeled with `kubernetes.io/bootstrapping=rbac-defaults`.
 
 At each start-up, the API server updates default cluster roles with any missing permissions, and updates default cluster role bindings with any missing subjects. This allows the cluster to repair accidental modifications, and helps to keep roles and role bindings up-to-date as permissions and subjects change in new Kubernetes releases.
 
-To opt out of this reconciliation, set the rbac.authorization.kubernetes.io/autoupdate annotation on a default cluster role or rolebinding to false. Be aware that missing default permissions and subjects can result in non-functional clusters.
+To opt out of this reconciliation, set the `rbac.authorization.kubernetes.io/autoupdate` annotation on a default cluster role or rolebinding to `false`. Be aware that missing default permissions and subjects can result in non-functional clusters.
 
 Auto-reconciliation is enabled by default if the RBAC authorizer is active.
 
